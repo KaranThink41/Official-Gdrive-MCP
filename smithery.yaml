@@ -1,5 +1,5 @@
 # Smithery configuration file: [https://smithery.ai/docs/config#smitheryyaml](https://smithery.ai/docs/config#smitheryyaml)
-name: Official G-Drive MCP
+name: G-Drive MCP
 startCommand:
   type: stdio
   configSchema:
