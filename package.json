@@ -1,11 +1,11 @@
 {
-  "name": "@modelcontextprotocol/slack-server",
+  "name": "@modelcontextprotocol/official-gdrive-mcp",
   "version": "0.1.0",
   "description": "A Model Context Protocol server",
   "private": true,
   "type": "module",
   "bin": {
-    "@modelcontextprotocol/Slack-server": "./build/index.js"
+    "@modelcontextprotocol/official-gdrive-mcp": "./build/index.js"
   },
   "files": [
     "build"
