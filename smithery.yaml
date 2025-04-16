@@ -1,20 +1,24 @@
 # Smithery configuration file: [https://smithery.ai/docs/config#smitheryyaml](https://smithery.ai/docs/config#smitheryyaml)
-
+name: Official G-Drive MCP
 startCommand:
   type: stdio
   configSchema:
     # JSON Schema defining the configuration options for the MCP.
     type: object
     required:
-      - SLACK_BOT_TOKEN
-      - SLACK_TEAM_ID
+      - GOOGLE_CLIENT_ID
+      - GOOGLE_CLIENT_SECRET
+      - GOOGLE_REFRESH_TOKEN
     properties:
-      SLACK_BOT_TOKEN:
+      GOOGLE_CLIENT_ID:
         type: string
-        description: The Bot User OAuth Token for the Slack app
-      SLACK_TEAM_ID:
+        description: The client ID for the Google app
+      GOOGLE_CLIENT_SECRET:
         type: string
-        description: The Slack Team ID for the workspace
+        description: The client secret for the Google app
+      GOOGLE_REFRESH_TOKEN:
+        type: string
+        description: The refresh token for the Google app
   commandFunction:
     # A JS function that produces the CLI command based on the given config to start the MCP on stdio.
     |-
@@ -22,10 +26,12 @@ startCommand:
       command: 'node',
       args: ['build/index.js'],
       env: {
-        SLACK_BOT_TOKEN: config.SLACK_BOT_TOKEN,
-        SLACK_TEAM_ID: config.SLACK_TEAM_ID
+        GOOGLE_CLIENT_ID: config.GOOGLE_CLIENT_ID,
+        GOOGLE_CLIENT_SECRET: config.GOOGLE_CLIENT_SECRET,
+        GOOGLE_REFRESH_TOKEN: config.GOOGLE_REFRESH_TOKEN
       }
     })
   exampleConfig:
-    SLACK_BOT_TOKEN: your_bot_token_here
-    SLACK_TEAM_ID: your_team_id_here
+    GOOGLE_CLIENT_ID: your_client_id_here
+    GOOGLE_CLIENT_SECRET: your_client_secret_here
+    GOOGLE_REFRESH_TOKEN: your_refresh_token_here
